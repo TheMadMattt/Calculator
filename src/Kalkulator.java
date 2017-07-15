@@ -618,7 +618,7 @@ public class Kalkulator extends JFrame {
                         key != KeyEvent.VK_MINUS && key != KeyEvent.VK_SLASH && key != '*') {
                     mainField.setText("");
                 }
-//test
+
                 if (key == KeyEvent.VK_BACK_SPACE && mainField.getText().equals("Error")) {
                     mainField.setText("0");
                     secondField.setText(null);
