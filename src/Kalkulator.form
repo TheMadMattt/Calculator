@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Kalkulator">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="11" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="20" y="20" width="462" height="572"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="5165a" class="javax.swing.JButton" binding="a2Button" default-binding="true">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <text value="2"/>
+        </properties>
+      </component>
+      <component id="42363" class="javax.swing.JButton" binding="a7Button" default-binding="true">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <text value="7"/>
+        </properties>
+      </component>
+      <component id="2c4fa" class="javax.swing.JButton" binding="a4Button" default-binding="true">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <hideActionText value="false"/>
+          <text value="4"/>
+        </properties>
+      </component>
+      <component id="13f4f" class="javax.swing.JButton" binding="a1Button" default-binding="true">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <text value="1"/>
+        </properties>
+      </component>
+      <component id="4bac9" class="javax.swing.JButton" binding="a5Button" default-binding="true">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <text value="5"/>
+        </properties>
+      </component>
+      <component id="c06f3" class="javax.swing.JButton" binding="a8Button" default-binding="true">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <text value="8"/>
+        </properties>
+      </component>
+      <component id="c4529" class="javax.swing.JButton" binding="a3Button" default-binding="true">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <text value="3"/>
+        </properties>
+      </component>
+      <component id="28190" class="javax.swing.JButton" binding="a6Button" default-binding="true">
+        <constraints>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <text value="6"/>
+        </properties>
+      </component>
+      <component id="7a304" class="javax.swing.JButton" binding="a9Button" default-binding="true">
+        <constraints>
+          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <text value="9"/>
+        </properties>
+      </component>
+      <component id="70fe9" class="javax.swing.JButton" binding="a0Button" default-binding="true">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8410145"/>
+          <font size="20"/>
+          <foreground color="-16777216"/>
+          <hideActionText value="false"/>
+          <text value="0"/>
+        </properties>
+      </component>
+      <component id="2426b" class="javax.swing.JButton" binding="equal">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="70"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="20"/>
+          <text value="="/>
+        </properties>
+      </component>
+      <component id="2ea6a" class="javax.swing.JButton" binding="clearButton">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-54745"/>
+          <font size="20"/>
+          <text value="C"/>
+        </properties>
+      </component>
+      <component id="151bc" class="javax.swing.JButton" binding="deleteButton">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8551288"/>
+          <font size="20"/>
+          <text value="&lt;-"/>
+        </properties>
+      </component>
+      <component id="c8a1" class="javax.swing.JButton" binding="percent">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="20"/>
+          <text value="%"/>
+        </properties>
+      </component>
+      <component id="de49e" class="javax.swing.JButton" binding="squareRoot">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="20"/>
+          <text value="√"/>
+        </properties>
+      </component>
+      <component id="31c08" class="javax.swing.JButton" binding="square">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="20"/>
+          <text value="x²"/>
+        </properties>
+      </component>
+      <component id="83f07" class="javax.swing.JTextField" binding="secondField">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <font size="15"/>
+          <foreground color="-7434581"/>
+          <horizontalAlignment value="4"/>
+        </properties>
+      </component>
+      <component id="44d7e" class="javax.swing.JButton" binding="dotButton">
+        <constraints>
+          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="24"/>
+          <text value="."/>
+        </properties>
+      </component>
+      <component id="9613b" class="javax.swing.JButton" binding="negation">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="24"/>
+          <text value="±"/>
+        </properties>
+      </component>
+      <component id="9ec0d" class="javax.swing.JButton" binding="MReadButton">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="MR"/>
+        </properties>
+      </component>
+      <component id="660ba" class="javax.swing.JButton" binding="MSaveButton">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="MS"/>
+        </properties>
+      </component>
+      <component id="dc894" class="javax.swing.JButton" binding="MClearButton">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="MC"/>
+        </properties>
+      </component>
+      <component id="1e014" class="javax.swing.JButton" binding="CEButton">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8551288"/>
+          <font size="20"/>
+          <text value="CE"/>
+        </properties>
+      </component>
+      <component id="51d19" class="javax.swing.JButton" binding="divideByOne">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="20"/>
+          <text value="1/x"/>
+        </properties>
+      </component>
+      <component id="78d" class="javax.swing.JButton" binding="add">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="24"/>
+          <text value="+"/>
+        </properties>
+      </component>
+      <component id="71390" class="javax.swing.JButton" binding="subtract">
+        <constraints>
+          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="24"/>
+          <text value="-"/>
+        </properties>
+      </component>
+      <component id="795db" class="javax.swing.JButton" binding="multiply">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="24"/>
+          <text value="x"/>
+        </properties>
+      </component>
+      <component id="86110" class="javax.swing.JButton" binding="divide">
+        <constraints>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="24"/>
+          <text value="÷"/>
+        </properties>
+      </component>
+      <component id="54e09" class="javax.swing.JTextField" binding="memoryField">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="4805f" class="javax.swing.JButton" binding="MminusButton">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="20"/>
+          <text value="M-"/>
+        </properties>
+      </component>
+      <component id="f22ad" class="javax.swing.JButton" binding="MplusButton">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="20"/>
+          <text value="M+"/>
+        </properties>
+      </component>
+      <component id="1eac9" class="javax.swing.JFormattedTextField" binding="mainField">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="40"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusLostBehavior value="1"/>
+          <font size="25"/>
+          <horizontalAlignment value="4"/>
+          <text value="0"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
