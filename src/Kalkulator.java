@@ -211,8 +211,7 @@ public class Kalkulator extends JFrame {
             if (pressedKey == '0' && mainField.getText().equals("0")) {
                 pressedKey = add.getText().charAt(0);
             }
-            if (pressedKey != '0' && mainField.getText().equals("0"))
-            {
+            if (pressedKey != '0' && mainField.getText().equals("0")) {
                 pressedKey = add.getText().charAt(0);
             }
             if (operation.equals("+")) {
@@ -258,8 +257,7 @@ public class Kalkulator extends JFrame {
             if (pressedKey == '0' && mainField.getText().equals("0")) {
                 pressedKey = subtract.getText().charAt(0);
             }
-            if (pressedKey != '0' && mainField.getText().equals("0"))
-            {
+            if (pressedKey != '0' && mainField.getText().equals("0")) {
                 pressedKey = subtract.getText().charAt(0);
             }
             if (operation.equals("+")) {
@@ -305,8 +303,7 @@ public class Kalkulator extends JFrame {
             if (pressedKey == '0' && mainField.getText().equals("0")) {
                 pressedKey = multiply.getText().charAt(0);
             }
-            if (pressedKey != '0' && mainField.getText().equals("0"))
-            {
+            if (pressedKey != '0' && mainField.getText().equals("0")) {
                 pressedKey = multiply.getText().charAt(0);
             }
             if (operation.equals("+")) {
@@ -353,8 +350,7 @@ public class Kalkulator extends JFrame {
             if (pressedKey == '0' && mainField.getText().equals("0")) {
                 pressedKey = divide.getText().charAt(0);
             }
-            if (pressedKey != '0' && mainField.getText().equals("0"))
-            {
+            if (pressedKey != '0' && mainField.getText().equals("0")) {
                 pressedKey = divide.getText().charAt(0);
             }
             if (operation.equals("+")) {
@@ -413,8 +409,7 @@ public class Kalkulator extends JFrame {
                     if (pressedKey != '0' && mainField.getText().equals("0")) {
                         secondField.setText(null);
                         mainField.setText("" + result);
-                    }
-                    else {
+                    } else {
                         if (!mainField.getText().isEmpty()) {
                             numberB = Double.parseDouble(mainField.getText());
                         } else numberB = 1;
@@ -561,8 +556,7 @@ public class Kalkulator extends JFrame {
         MSaveButton.addActionListener((ActionEvent e) -> {
             MClearButton.setEnabled(true);
             MReadButton.setEnabled(true);
-            if(operation.equals("0"))
-            {
+            if (operation.equals("0")) {
                 memory = Double.parseDouble(mainField.getText());
             } else {
                 memory = result;
@@ -609,16 +603,15 @@ public class Kalkulator extends JFrame {
 
                 if (Character.isDigit(key)) {
                     pressedKey = key;
-                }
-                else if (pressedKey == '0' && mainField.getText().equals("0") && key != KeyEvent.VK_ENTER) {
+                } else if (pressedKey != '0' && mainField.getText().equals("0")) {
                     pressedKey = key;
                 }
 
-                if (mainField.getText().equals("0") && !Character.isLetter(key) && key != KeyEvent.VK_PLUS &&
-                        key != KeyEvent.VK_MINUS && key != KeyEvent.VK_SLASH && key != '*') {
+                if (mainField.getText().equals("0") && !Character.isLetter(key) && key != '+' &&
+                        key != '-' && key != '/' && key != '*' && key != KeyEvent.VK_ENTER) {
                     mainField.setText("");
                 }
-//test
+
                 if (key == KeyEvent.VK_BACK_SPACE && mainField.getText().equals("Error")) {
                     mainField.setText("0");
                     secondField.setText(null);
@@ -671,6 +664,7 @@ public class Kalkulator extends JFrame {
                                     } else {
                                         mainField.setText("Error");
                                         secondField.setText(secondField.getText() + numberB);
+                                        break;
                                     }
                                 }
                             }
@@ -710,6 +704,7 @@ public class Kalkulator extends JFrame {
                                     } else {
                                         mainField.setText("Error");
                                         secondField.setText(secondField.getText() + numberB);
+                                        break;
                                     }
                                 }
                             }
@@ -749,6 +744,7 @@ public class Kalkulator extends JFrame {
                                     } else {
                                         mainField.setText("Error");
                                         secondField.setText(secondField.getText() + numberB);
+                                        break;
                                     }
                                 }
                             }
@@ -789,13 +785,13 @@ public class Kalkulator extends JFrame {
                                     } else {
                                         mainField.setText("Error");
                                         secondField.setText(secondField.getText() + numberB);
+                                        break;
                                     }
                                 }
-                            } else {
-                                result = numberA;
-                                mainField.setText("0");
-                                secondField.setText("" + result + " / ");
                             }
+                            result = numberA;
+                            mainField.setText("0");
+                            secondField.setText("" + result + " / ");
                             operation = "/";
                             break;
                     }
@@ -822,9 +818,8 @@ public class Kalkulator extends JFrame {
                         case "*":
                             if (pressedKey != '0' && mainField.getText().equals("0")) {
                                 secondField.setText(null);
-                                mainField.setText(""+result);
-                            }
-                            else {
+                                mainField.setText("" + result);
+                            } else {
                                 if (!mainField.getText().isEmpty()) {
                                     numberB = Double.parseDouble(mainField.getText());
                                 } else numberB = 1;
