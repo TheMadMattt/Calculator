@@ -1,5 +1,8 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.math.RoundingMode;
+import java.text.*;
 
 /**
  * Created by Mateusz on 17.07.2017.
@@ -38,18 +41,23 @@ public class Scientific extends JFrame{
     private JButton MSaveButton;
     private JButton MplusButton;
     private JButton MminusButton;
-    private JRadioButton radiansRadioButton;
-    private JRadioButton degressRadioButton;
+    private JRadioButton radians;
+    private JRadioButton degrees;
+    private JButton sinus;
+    private JButton tangens;
+    private JButton cosinus;
     private double numberA = 0;
     private double numberB = 0;
     private double result = 0;
     private double memory = 0;
     private String operation = "0";
     private char pressedKey = 'a';
+    private boolean radEnabled = true;
 
     Scientific(int posX, int posY){
         super("Naukowy");
         setContentPane(scientific);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Calculator.png")));
         setBounds(posX,posY,400,600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JMenuBar mainMenu = new JMenuBar();
@@ -899,6 +907,119 @@ public class Scientific extends JFrame{
             y = pointY.intValue();
             new Calculator(x,y);
             dispose();
+        });
+        DecimalFormat formatter = new DecimalFormat("#0.000000");
+        formatter.setRoundingMode(RoundingMode.UP);
+        sinus.addActionListener((ActionEvent e) ->{
+            if (operation.equals("0")) {
+                numberA = Double.parseDouble(mainField.getText().toString());
+                if(radEnabled) {
+                    result = (int)(Math.round(Math.sin(numberA)*100000))/100000.0;
+                } else{
+                    result = (int)(Math.round(Math.sin(Math.toRadians(numberA))*100))/100.0;
+                }
+                secondField.setText(secondField.getText() + "sin("+numberA+")");
+            } else {
+                if(radEnabled) {
+                    numberB = Double.parseDouble(mainField.getText());
+                } else{
+                    numberB = Double.parseDouble(mainField.getText());
+                    result = numberB;
+                    numberB = Math.toRadians(numberB);
+                }
+                secondField.setText(secondField.getText() + "sin("+result+")");
+            }
+            if (operation.equals("+")) {
+                result += Math.sin(numberB);
+            }
+            if (operation.equals("-")) {
+                result -= Math.sin(numberB);
+            }
+            if (operation.equals("*")) {
+                result *= Math.sin(numberB);
+            }
+            if (operation.equals("/")) {
+                result /= Math.sin(numberB);
+            }
+            mainField.setText(Double.toString(result));
+            operation = "0";
+            mainField.requestFocusInWindow();
+        });
+        radians.addActionListener((ActionEvent e) -> {
+            radEnabled = true;
+        });
+        degrees.addActionListener((ActionEvent e) -> {
+            radEnabled = false;
+        });
+        cosinus.addActionListener((ActionEvent e) -> {
+            if (operation.equals("0")) {
+                numberA = Double.parseDouble(mainField.getText().toString());
+                if(radEnabled) {
+                    result = (int)(Math.round(Math.cos(numberA)*100000))/100000.0;
+                } else{
+                    result = (int)(Math.round(Math.cos(Math.toRadians(numberA))*100))/100.0;
+                }
+                secondField.setText(secondField.getText() + "cos("+numberA+")");
+            } else {
+                if(radEnabled) {
+                    numberB = Double.parseDouble(mainField.getText());
+                } else{
+                    numberB = Double.parseDouble(mainField.getText());
+                    result = numberB;
+                    numberB = Math.toRadians(numberB);
+                }
+                secondField.setText(secondField.getText() + "cos("+result+")");
+            }
+            if (operation.equals("+")) {
+                result += Math.cos(numberB);
+            }
+            if (operation.equals("-")) {
+                result -= Math.cos(numberB);
+            }
+            if (operation.equals("*")) {
+                result *= Math.cos(numberB);
+            }
+            if (operation.equals("/")) {
+                result /= Math.cos(numberB);
+            }
+            mainField.setText(Double.toString(result));
+            operation = "0";
+            mainField.requestFocusInWindow();
+        });
+        tangens.addActionListener((ActionEvent e) ->{
+            if (operation.equals("0")) {
+                numberA = Double.parseDouble(mainField.getText().toString());
+                if(radEnabled) {
+                    result = (int)(Math.round(Math.tan(numberA)*100000))/100000.0;
+                } else{
+                    result = (int)(Math.round(Math.tan(Math.toRadians(numberA))*100))/100.0;
+                }
+                secondField.setText(secondField.getText() + "tan("+numberA+")");
+            } else {
+                if(radEnabled) {
+                    numberB = Double.parseDouble(mainField.getText());
+                } else{
+                    numberB = Double.parseDouble(mainField.getText());
+                    result = numberB;
+                    numberB = Math.toRadians(numberB);
+                }
+                secondField.setText(secondField.getText() + "tan("+result+")");
+            }
+            if (operation.equals("+")) {
+                result += Math.tan(numberB);
+            }
+            if (operation.equals("-")) {
+                result -= Math.tan(numberB);
+            }
+            if (operation.equals("*")) {
+                result *= Math.tan(numberB);
+            }
+            if (operation.equals("/")) {
+                result /= Math.tan(numberB);
+            }
+            mainField.setText(Double.toString(result));
+            operation = "0";
+            mainField.requestFocusInWindow();
         });
     }
 }
