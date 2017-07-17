@@ -2,40 +2,40 @@ import javax.swing.*;
 import java.awt.event.*;
 
 /**
- * Created by Mateusz on 08.07.2017.
+ * Created by Mateusz on 17.07.2017.
  */
-public class Kalkulator extends JFrame {
-    private JPanel panel1;
+public class Scientific extends JFrame{
+    public JPanel scientific;
     private JFormattedTextField mainField;
     private JTextField secondField;
-    private JButton a8Button;
-    private JButton a4Button;
-    private JButton a5Button;
-    private JButton a1Button;
-    private JButton a2Button;
-    private JButton a7Button;
     private JButton a3Button;
+    private JButton a5Button;
     private JButton a6Button;
-    private JButton a9Button;
     private JButton a0Button;
     private JButton add;
     private JButton subtract;
     private JButton multiply;
     private JButton divide;
     private JButton equal;
-    private JButton clearButton;
+    private JTextField memoryField;
+    private JButton CEButton;
+    private JButton a4Button;
+    private JButton a2Button;
+    private JButton a1Button;
+    private JButton a7Button;
+    private JButton a8Button;
+    private JButton a9Button;
+    private JButton negation;
     private JButton deleteButton;
+    private JButton clearButton;
+    private JButton dotButton;
     private JButton percent;
     private JButton squareRoot;
-    private JButton square;
     private JButton divideByOne;
-    private JButton dotButton;
-    private JButton negation;
+    private JButton square;
+    private JButton MClearButton;
     private JButton MReadButton;
     private JButton MSaveButton;
-    private JButton MClearButton;
-    private JButton CEButton;
-    private JTextField memoryField;
     private JButton MplusButton;
     private JButton MminusButton;
     private double numberA = 0;
@@ -45,20 +45,20 @@ public class Kalkulator extends JFrame {
     private String operation = "0";
     private char pressedKey = 'a';
 
-
-    public Kalkulator() {
+    public Scientific(int x, int y){
         super("Kalkulator");
-        setContentPane(panel1);
-        setBounds(0, 0, 400, 600);
+        add(scientific);
+        setBounds(x,y,400,600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        JMenuBar MainMenu = new JMenuBar();
-        JMenu Calculators = new JMenu("Kalkulatory");
-        JMenuItem Scientific = new JMenuItem("Naukowy");
-        MainMenu.add(Calculators);
-        Calculators.add(Scientific);
-        setJMenuBar(MainMenu);
-        MainMenu.setVisible(true);
+//        setLocationRelativeTo(null);
+        pack();
+        JMenuBar mainMenu = new JMenuBar();
+        JMenu calculators = new JMenu("Kalkulatory");
+        JMenuItem standard = new JMenuItem("Standardowy");
+        mainMenu.add(calculators);
+        calculators.add(standard);
+        setJMenuBar(mainMenu);
+        mainMenu.setVisible(true);
         setVisible(true);
         addWindowListener(new WindowAdapter() {
             public void windowOpened(WindowEvent e) {
