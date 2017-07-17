@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 /**
  * Created by Mateusz on 08.07.2017.
  */
