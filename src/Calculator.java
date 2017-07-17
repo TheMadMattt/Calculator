@@ -38,9 +38,6 @@ public class Calculator extends JFrame {
     private JTextField memoryField;
     private JButton MplusButton;
     private JButton MminusButton;
-    private JMenuBar mainMenu;
-    private JMenu calculators;
-    private JMenuItem scientific;
     private double numberA = 0;
     private double numberB = 0;
     private double result = 0;
@@ -49,15 +46,19 @@ public class Calculator extends JFrame {
     private char pressedKey = 'a';
 
 
-    public Calculator() {
-        super("Kalkulator");
+    Calculator(int posX, int posY) {
+        super("Standardowy");
         setContentPane(standard);
-        setBounds(0, 0, 400, 600);
+        if(posX==0 && posY==0) {
+            setBounds(0, 0, 400, 600);
+            setLocationRelativeTo(null);
+        } else{
+            setBounds(posX, posY, 400, 600);
+        }
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        mainMenu = new JMenuBar();
-        calculators = new JMenu("Kalkulatory");
-        scientific = new JMenuItem("Naukowy");
+        JMenuBar mainMenu = new JMenuBar();
+        JMenu calculators = new JMenu("Kalkulatory");
+        JMenuItem scientific = new JMenuItem("Naukowy");
         mainMenu.add(calculators);
         calculators.add(scientific);
         setJMenuBar(mainMenu);
@@ -73,10 +74,7 @@ public class Calculator extends JFrame {
         MClearButton.setEnabled(false);
         MReadButton.setEnabled(false);
         memoryField.setEditable(false);
-        initButtons();
-    }
 
-    public void initButtons() {
         a1Button.addActionListener((ActionEvent e) ->
         {
             if (mainField.getText().isEmpty()) {
@@ -565,7 +563,7 @@ public class Calculator extends JFrame {
             MClearButton.setEnabled(false);
             MReadButton.setEnabled(false);
             memory = 0;
-            memoryField.setText(Double.toString(memory));
+            memoryField.setText(null);
             mainField.requestFocusInWindow();
         });
         MSaveButton.addActionListener((ActionEvent e) -> {
@@ -900,10 +898,10 @@ public class Calculator extends JFrame {
         scientific.addActionListener((ActionEvent e) -> {
             Double pointX = getLocation().getX();
             Double pointY = getLocation().getY();
-            int x,y;
+            int x, y;
             x = pointX.intValue();
             y = pointY.intValue();
-            Scientific s = new Scientific(x,y);
+            new Scientific(x,y);
             dispose();
         });
     }

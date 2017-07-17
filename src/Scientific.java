@@ -38,6 +38,8 @@ public class Scientific extends JFrame{
     private JButton MSaveButton;
     private JButton MplusButton;
     private JButton MminusButton;
+    private JRadioButton radiansRadioButton;
+    private JRadioButton degressRadioButton;
     private double numberA = 0;
     private double numberB = 0;
     private double result = 0;
@@ -45,13 +47,11 @@ public class Scientific extends JFrame{
     private String operation = "0";
     private char pressedKey = 'a';
 
-    public Scientific(int x, int y){
-        super("Kalkulator");
-        add(scientific);
-        setBounds(x,y,400,600);
+    Scientific(int posX, int posY){
+        super("Naukowy");
+        setContentPane(scientific);
+        setBounds(posX,posY,400,600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//        setLocationRelativeTo(null);
-        pack();
         JMenuBar mainMenu = new JMenuBar();
         JMenu calculators = new JMenu("Kalkulatory");
         JMenuItem standard = new JMenuItem("Standardowy");
@@ -559,7 +559,7 @@ public class Scientific extends JFrame{
             MClearButton.setEnabled(false);
             MReadButton.setEnabled(false);
             memory = 0;
-            memoryField.setText(Double.toString(memory));
+            memoryField.setText(null);
             mainField.requestFocusInWindow();
         });
         MSaveButton.addActionListener((ActionEvent e) -> {
@@ -890,6 +890,15 @@ public class Scientific extends JFrame{
                 super.focusLost(e);
                 mainField.requestFocusInWindow();
             }
+        });
+        standard.addActionListener((ActionEvent e) -> {
+            Double pointX = getLocation().getX();
+            Double pointY = getLocation().getY();
+            int x, y;
+            x = pointX.intValue();
+            y = pointY.intValue();
+            new Calculator(x,y);
+            dispose();
         });
     }
 }

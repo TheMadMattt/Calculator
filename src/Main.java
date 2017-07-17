@@ -5,6 +5,9 @@ import javax.swing.*;
  */
 public class Main {
     public static void main(String[] args) {
-        Calculator Window = new Calculator();
+        int x,y;
+        x=0;
+        y=0;
+        Calculator Window = new Calculator(x,y);
     }
 }
