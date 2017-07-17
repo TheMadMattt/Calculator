@@ -52,7 +52,6 @@ public class Kalkulator extends JFrame {
         setBounds(0, 0, 400, 600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setResizable(false);
         JMenuBar MainMenu = new JMenuBar();
         JMenu Calculators = new JMenu("Kalkulatory");
         JMenuItem Scientific = new JMenuItem("Naukowy");
