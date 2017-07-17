@@ -73,7 +73,10 @@ public class Calculator extends JFrame {
         MClearButton.setEnabled(false);
         MReadButton.setEnabled(false);
         memoryField.setEditable(false);
+        initButtons();
+    }
 
+    public void initButtons() {
         a1Button.addActionListener((ActionEvent e) ->
         {
             if (mainField.getText().isEmpty()) {
