@@ -49,9 +49,18 @@ public class Kalkulator extends JFrame {
     public Kalkulator() {
         super("Kalkulator");
         setContentPane(panel1);
-        setBounds(0, 0, 400, 550);
+        setBounds(0, 0, 400, 600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        JMenuBar MainMenu = new JMenuBar();
+        JMenu Kalkulatory = new JMenu("Kalkulatory");
+        JMenuItem Naukowy = new JMenuItem("Naukowy");
+        MainMenu.add(Kalkulatory);
+        Kalkulatory.add(Naukowy);
+        setJMenuBar(MainMenu);
+        MainMenu.setVisible(true);
         addWindowListener(new WindowAdapter() {
             public void windowOpened(WindowEvent e) {
                 mainField.requestFocusInWindow();
@@ -208,9 +217,6 @@ public class Kalkulator extends JFrame {
                     numberB = 0;
                 }
             }
-            if (pressedKey == '0' && mainField.getText().equals("0")) {
-                pressedKey = add.getText().charAt(0);
-            }
             if (pressedKey != '0' && mainField.getText().equals("0")) {
                 pressedKey = add.getText().charAt(0);
             }
@@ -231,16 +237,23 @@ public class Kalkulator extends JFrame {
                         numberA = numberA / numberB;
                         result = numberA;
                         mainField.setText("0");
-                        secondField.setText(result + " / ");
-                    } else {
+                        secondField.setText(result + " + ");
+                    }
+                    else {
                         mainField.setText("Error");
                         secondField.setText(secondField.getText() + numberB);
                     }
+                } else if (pressedKey == '+' && mainField.getText().equals("0")) {
+                    result = numberA;
+                    mainField.setText("0");
+                    secondField.setText(result + " + ");
                 }
             }
-            result = numberA;
-            secondField.setText(result + " + ");
-            mainField.setText("0");
+            else {
+                result = numberA;
+                secondField.setText(result + " + ");
+                mainField.setText("0");
+            }
             operation = "+";
             mainField.requestFocusInWindow();
         });
@@ -254,9 +267,6 @@ public class Kalkulator extends JFrame {
                     numberB = 0;
                 }
             }
-            if (pressedKey == '0' && mainField.getText().equals("0")) {
-                pressedKey = subtract.getText().charAt(0);
-            }
             if (pressedKey != '0' && mainField.getText().equals("0")) {
                 pressedKey = subtract.getText().charAt(0);
             }
@@ -265,6 +275,7 @@ public class Kalkulator extends JFrame {
             }
             if (operation.equals("-")) {
                 numberA = numberA - numberB;
+
             }
             if (operation.equals("*")) {
                 if (Character.isDigit(pressedKey)) {
@@ -277,16 +288,21 @@ public class Kalkulator extends JFrame {
                         numberA = numberA / numberB;
                         result = numberA;
                         mainField.setText("0");
-                        secondField.setText(result + " / ");
+                        secondField.setText(result + " - ");
                     } else {
                         mainField.setText("Error");
                         secondField.setText(secondField.getText() + numberB);
                     }
+                } else if (pressedKey == '-' && mainField.getText().equals("0")) {
+                    result = numberA;
+                    mainField.setText("0");
+                    secondField.setText(result + " - ");
                 }
+            } else {
+                result = numberA;
+                secondField.setText(result + " - ");
+                mainField.setText("0");
             }
-            result = numberA;
-            secondField.setText(result + " - ");
-            mainField.setText("0");
             operation = "-";
             mainField.requestFocusInWindow();
         });
@@ -300,11 +316,8 @@ public class Kalkulator extends JFrame {
                     numberB = 1;
                 }
             }
-            if (pressedKey == '0' && mainField.getText().equals("0")) {
-                pressedKey = multiply.getText().charAt(0);
-            }
             if (pressedKey != '0' && mainField.getText().equals("0")) {
-                pressedKey = multiply.getText().charAt(0);
+                pressedKey = '*';
             }
             if (operation.equals("+")) {
                 numberA += numberB;
@@ -323,32 +336,31 @@ public class Kalkulator extends JFrame {
                         numberA = numberA / numberB;
                         result = numberA;
                         mainField.setText("0");
-                        secondField.setText(result + " / ");
+                        secondField.setText(result + " x ");
                     } else {
                         mainField.setText("Error");
                         secondField.setText(secondField.getText() + numberB);
                     }
+                } else if (pressedKey == '*' && mainField.getText().equals("0")) {
+                    result = numberA;
+                    mainField.setText("0");
+                    secondField.setText(result + " x ");
                 }
+            } else {
+                result = numberA;
+                secondField.setText(result + " x ");
+                mainField.setText("0");
             }
-            result = numberA;
-            secondField.setText(result + " x ");
-            mainField.setText("0");
             operation = "*";
             mainField.requestFocusInWindow();
         });
         divide.addActionListener((ActionEvent e) -> {
             if (operation.equals("0")) {
                 numberA = Double.parseDouble(mainField.getText());
-                mainField.setText("0");
-                result = numberA;
-                secondField.setText("" + result + " / ");
             } else {
                 if (!mainField.getText().isEmpty()) {
                     numberB = Double.parseDouble(mainField.getText());
                 } else numberB = 1;
-            }
-            if (pressedKey == '0' && mainField.getText().equals("0")) {
-                pressedKey = divide.getText().charAt(0);
             }
             if (pressedKey != '0' && mainField.getText().equals("0")) {
                 pressedKey = divide.getText().charAt(0);
@@ -378,8 +390,8 @@ public class Kalkulator extends JFrame {
                 }
             } else {
                 result = numberA;
+                secondField.setText(result + " / ");
                 mainField.setText("0");
-                secondField.setText("" + result + " / ");
             }
             operation = "/";
             mainField.requestFocusInWindow();
@@ -873,6 +885,13 @@ public class Kalkulator extends JFrame {
                 } else if (!Character.isDigit(key)) {
                     e.consume();
                 }
+            }
+        });
+        mainField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                mainField.requestFocusInWindow();
             }
         });
     }
