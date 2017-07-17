@@ -1,4 +1,7 @@
+import sun.awt.image.ToolkitImage;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 /**
@@ -49,6 +52,7 @@ public class Calculator extends JFrame {
     Calculator(int posX, int posY) {
         super("Standardowy");
         setContentPane(standard);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Calculator.png")));
         if(posX==0 && posY==0) {
             setBounds(0, 0, 400, 600);
             setLocationRelativeTo(null);
