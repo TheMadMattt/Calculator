@@ -60,6 +60,7 @@ public class Kalkulator extends JFrame {
         setJMenuBar(MainMenu);
         MainMenu.setVisible(true);
         setVisible(true);
+
         addWindowListener(new WindowAdapter() {
             public void windowOpened(WindowEvent e) {
                 mainField.requestFocusInWindow();
