@@ -51,16 +51,16 @@ public class Kalkulator extends JFrame {
         setContentPane(panel1);
         setBounds(0, 0, 400, 600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(true);
         setLocationRelativeTo(null);
         setResizable(false);
         JMenuBar MainMenu = new JMenuBar();
-        JMenu Kalkulatory = new JMenu("Kalkulatory");
-        JMenuItem Naukowy = new JMenuItem("Naukowy");
-        MainMenu.add(Kalkulatory);
-        Kalkulatory.add(Naukowy);
+        JMenu Calculators = new JMenu("Kalkulatory");
+        JMenuItem Scientific = new JMenuItem("Naukowy");
+        MainMenu.add(Calculators);
+        Calculators.add(Scientific);
         setJMenuBar(MainMenu);
         MainMenu.setVisible(true);
+        setVisible(true);
         addWindowListener(new WindowAdapter() {
             public void windowOpened(WindowEvent e) {
                 mainField.requestFocusInWindow();
@@ -238,8 +238,7 @@ public class Kalkulator extends JFrame {
                         result = numberA;
                         mainField.setText("0");
                         secondField.setText(result + " + ");
-                    }
-                    else {
+                    } else {
                         mainField.setText("Error");
                         secondField.setText(secondField.getText() + numberB);
                     }
@@ -248,8 +247,7 @@ public class Kalkulator extends JFrame {
                     mainField.setText("0");
                     secondField.setText(result + " + ");
                 }
-            }
-            else {
+            } else {
                 result = numberA;
                 secondField.setText(result + " + ");
                 mainField.setText("0");
