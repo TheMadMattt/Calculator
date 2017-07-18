@@ -245,7 +245,7 @@ public class Scientific extends JFrame {
             }
             if (operation.equals("^"))
             {
-                //TO DO: Write the code.
+                //TO DO: Write the code..
             }
             if (operation.equals("/")) {
                 if (Character.isDigit(pressedKey)) {
