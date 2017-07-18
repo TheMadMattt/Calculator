@@ -459,7 +459,7 @@
     </children>
   </grid>
   <buttonGroups>
-    <group name="degRad">
+    <group name="">
       <member id="6dc1e"/>
       <member id="62684"/>
     </group>

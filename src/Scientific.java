@@ -245,7 +245,10 @@ public class Scientific extends JFrame {
             }
             if (operation.equals("^"))
             {
-                //TO DO: Write the code..
+                if(Character.isDigit(pressedKey))
+                {
+                    numberA = Math.pow(numberA,numberB);
+                }
             }
             if (operation.equals("/")) {
                 if (Character.isDigit(pressedKey)) {
@@ -298,7 +301,10 @@ public class Scientific extends JFrame {
             }
             if (operation.equals("^"))
             {
-                //TO DO: Write the code.
+                if(Character.isDigit(pressedKey))
+                {
+                    numberA = Math.pow(numberA,numberB);
+                }
             }
             if (operation.equals("/")) {
                 if (Character.isDigit(pressedKey)) {
@@ -350,7 +356,10 @@ public class Scientific extends JFrame {
             }
             if (operation.equals("^"))
             {
-                //TO DO: Write the code.
+                if(Character.isDigit(pressedKey))
+                {
+                    numberA = Math.pow(numberA,numberB);
+                }
             }
             if (operation.equals("/")) {
                 if (Character.isDigit(pressedKey)) {
@@ -400,7 +409,10 @@ public class Scientific extends JFrame {
             }
             if (operation.equals("^"))
             {
-                //TO DO: Write the code.
+                if(Character.isDigit(pressedKey))
+                {
+                    numberA = Math.pow(numberA,numberB);
+                }
             }
             if (operation.equals("/")) {
                 if (Character.isDigit(pressedKey)) {
@@ -1106,24 +1118,54 @@ public class Scientific extends JFrame {
         powXY.addActionListener((ActionEvent e) -> {
             if (operation.equals("0")) {
                 numberA = Double.parseDouble(mainField.getText());
-                result = numberA;
-                mainField.setText("0");
-                secondField.setText(secondField.getText() + result + "^");
             } else {
-                numberB = Double.parseDouble(mainField.getText());
-                secondField.setText(secondField.getText() + numberB + "^");
+                if (!mainField.getText().isEmpty()) {
+                    numberB = Double.parseDouble(mainField.getText());
+                } else {
+                    numberB = 1;
+                }
+            }
+            if (pressedKey != '0' && mainField.getText().equals("0")) {
+                pressedKey = '^';
             }
             if (operation.equals("+")) {
-                result += Math.pow(numberA, numberB);
+                numberA += numberB;
             }
             if (operation.equals("-")) {
-                result -= Math.pow(numberA, numberB);
+                numberA = numberA - numberB;
             }
             if (operation.equals("*")) {
-                result *= Math.pow(numberA, numberB);
+                if (Character.isDigit(pressedKey)) {
+                    numberA = numberA * numberB;
+                }
+            }
+            if (operation.equals("^"))
+            {
+                if(Character.isDigit(pressedKey))
+                {
+                    numberA = Math.pow(numberA,numberB);
+                }
             }
             if (operation.equals("/")) {
-                result /= Math.pow(numberA, numberB);
+                if (Character.isDigit(pressedKey)) {
+                    if (numberB != 0) {
+                        numberA = numberA / numberB;
+                        result = numberA;
+                        mainField.setText("0");
+                        secondField.setText(result + " ^ ");
+                    } else {
+                        mainField.setText("Error");
+                        secondField.setText(secondField.getText() + numberB);
+                    }
+                } else if (pressedKey == '*' && mainField.getText().equals("0")) {
+                    result = numberA;
+                    mainField.setText("0");
+                    secondField.setText(result + " ^ ");
+                }
+            } else {
+                result = numberA;
+                secondField.setText(result + " ^ ");
+                mainField.setText("0");
             }
             operation = "^";
             mainField.requestFocusInWindow();
