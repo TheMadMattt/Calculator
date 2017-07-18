@@ -1,3 +1,5 @@
+import com.sun.javafx.jmx.MXNodeAlgorithmContext;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,7 +9,7 @@ import java.text.*;
 /**
  * Created by Mateusz on 17.07.2017.
  */
-public class Scientific extends JFrame{
+public class Scientific extends JFrame {
     public JPanel scientific;
     private JFormattedTextField mainField;
     private JTextField secondField;
@@ -41,11 +43,12 @@ public class Scientific extends JFrame{
     private JButton MSaveButton;
     private JButton MplusButton;
     private JButton MminusButton;
-    private JRadioButton radians;
-    private JRadioButton degrees;
     private JButton sinus;
     private JButton tangens;
     private JButton cosinus;
+    private JButton radButton;
+    private JButton powXY;
+    private JButton logarithm;
     private double numberA = 0;
     private double numberB = 0;
     private double result = 0;
@@ -54,11 +57,11 @@ public class Scientific extends JFrame{
     private char pressedKey = 'a';
     private boolean radEnabled = true;
 
-    Scientific(int posX, int posY){
+    Scientific(int posX, int posY) {
         super("Naukowy");
         setContentPane(scientific);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Calculator.png")));
-        setBounds(posX,posY,400,600);
+        setBounds(posX, posY, 400, 700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JMenuBar mainMenu = new JMenuBar();
         JMenu calculators = new JMenu("Kalkulatory");
@@ -78,6 +81,7 @@ public class Scientific extends JFrame{
         MClearButton.setEnabled(false);
         MReadButton.setEnabled(false);
         memoryField.setEditable(false);
+        radButton.setBorder(null);
 
         a1Button.addActionListener((ActionEvent e) ->
         {
@@ -238,6 +242,10 @@ public class Scientific extends JFrame{
                     numberA = numberA * numberB;
                 }
             }
+            if (operation.equals("^"))
+            {
+                //TO DO: Write the code.
+            }
             if (operation.equals("/")) {
                 if (Character.isDigit(pressedKey)) {
                     if (numberB != 0) {
@@ -287,6 +295,10 @@ public class Scientific extends JFrame{
                     numberA = numberA * numberB;
                 }
             }
+            if (operation.equals("^"))
+            {
+                //TO DO: Write the code.
+            }
             if (operation.equals("/")) {
                 if (Character.isDigit(pressedKey)) {
                     if (numberB != 0) {
@@ -335,6 +347,10 @@ public class Scientific extends JFrame{
                     numberA = numberA * numberB;
                 }
             }
+            if (operation.equals("^"))
+            {
+                //TO DO: Write the code.
+            }
             if (operation.equals("/")) {
                 if (Character.isDigit(pressedKey)) {
                     if (numberB != 0) {
@@ -380,6 +396,10 @@ public class Scientific extends JFrame{
                 if (Character.isDigit(pressedKey)) {
                     numberA = numberA * numberB;
                 }
+            }
+            if (operation.equals("^"))
+            {
+                //TO DO: Write the code.
             }
             if (operation.equals("/")) {
                 if (Character.isDigit(pressedKey)) {
@@ -456,6 +476,20 @@ public class Scientific extends JFrame{
                             secondField.setText(null);
                             mainField.setText(Double.toString(result));
                         }
+                    }
+                    operation = "0";
+                    break;
+                case "^":
+                    if (pressedKey != '0' && mainField.getText().equals("0")) {
+                        secondField.setText(null);
+                        mainField.setText("" + result);
+                    } else {
+                        if (!mainField.getText().isEmpty()) {
+                            numberB = Double.parseDouble(mainField.getText());
+                        } else numberB = 1;
+                        result = Math.pow(result, numberB);
+                        secondField.setText(null);
+                        mainField.setText(Double.toString(result));
                     }
                     operation = "0";
                     break;
@@ -869,6 +903,20 @@ public class Scientific extends JFrame{
                             }
                             operation = "0";
                             break;
+                        case "^":
+                            if (pressedKey != '0' && mainField.getText().equals("0")) {
+                                secondField.setText(null);
+                                mainField.setText("" + result);
+                            } else {
+                                if (!mainField.getText().isEmpty()) {
+                                    numberB = Double.parseDouble(mainField.getText());
+                                } else numberB = 1;
+                                result = Math.pow(result, numberB);
+                                secondField.setText(null);
+                                mainField.setText(Double.toString(result));
+                            }
+                            operation = "0";
+                            break;
                     }
                     pressedKey = 'a';
                 }
@@ -905,120 +953,178 @@ public class Scientific extends JFrame{
             int x, y;
             x = pointX.intValue();
             y = pointY.intValue();
-            new Calculator(x,y);
+            new Calculator(x, y);
             dispose();
         });
         DecimalFormat formatter = new DecimalFormat("#0.000000");
         formatter.setRoundingMode(RoundingMode.UP);
-        sinus.addActionListener((ActionEvent e) ->{
+        sinus.addActionListener((ActionEvent e) -> {
             if (operation.equals("0")) {
-                numberA = Double.parseDouble(mainField.getText().toString());
-                if(radEnabled) {
-                    result = (int)(Math.round(Math.sin(numberA)*100000))/100000.0;
-                } else{
-                    result = (int)(Math.round(Math.sin(Math.toRadians(numberA))*100))/100.0;
+                numberA = Double.parseDouble(mainField.getText());
+                if (radEnabled) {
+                    result = (int) (Math.round(Math.sin(numberA) * 100000)) / 100000.0;
+                } else {
+                    result = (int) (Math.round(Math.sin(Math.toRadians(numberA)) * 100000)) / 100000.0;
                 }
-                secondField.setText(secondField.getText() + "sin("+numberA+")");
+                secondField.setText(secondField.getText() + "sin(" + numberA + ")");
             } else {
-                if(radEnabled) {
-                    numberB = Double.parseDouble(mainField.getText());
-                } else{
-                    numberB = Double.parseDouble(mainField.getText());
-                    result = numberB;
-                    numberB = Math.toRadians(numberB);
-                }
-                secondField.setText(secondField.getText() + "sin("+result+")");
+                numberB = Double.parseDouble(mainField.getText());
+                secondField.setText(secondField.getText() + "sin(" + numberB + ")");
             }
             if (operation.equals("+")) {
-                result += Math.sin(numberB);
+                if (radEnabled) {
+                    result += (int) (Math.round(Math.sin(numberB) * 100000)) / 100000.0;
+                } else {
+                    result += (int) (Math.round(Math.sin(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             if (operation.equals("-")) {
-                result -= Math.sin(numberB);
+                if (radEnabled) {
+                    result -= (int) (Math.round(Math.sin(numberB) * 100000)) / 100000.0;
+                } else {
+                    result -= (int) (Math.round(Math.sin(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             if (operation.equals("*")) {
-                result *= Math.sin(numberB);
+                if (radEnabled) {
+                    result *= (int) (Math.round(Math.sin(numberB) * 100000)) / 100000.0;
+                } else {
+                    result *= (int) (Math.round(Math.sin(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             if (operation.equals("/")) {
-                result /= Math.sin(numberB);
+                if (radEnabled) {
+                    result /= (int) (Math.round(Math.sin(numberB) * 100000)) / 100000.0;
+                } else {
+                    result /= (int) (Math.round(Math.sin(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             mainField.setText(Double.toString(result));
             operation = "0";
             mainField.requestFocusInWindow();
-        });
-        radians.addActionListener((ActionEvent e) -> {
-            radEnabled = true;
-        });
-        degrees.addActionListener((ActionEvent e) -> {
-            radEnabled = false;
         });
         cosinus.addActionListener((ActionEvent e) -> {
             if (operation.equals("0")) {
-                numberA = Double.parseDouble(mainField.getText().toString());
-                if(radEnabled) {
-                    result = (int)(Math.round(Math.cos(numberA)*100000))/100000.0;
-                } else{
-                    result = (int)(Math.round(Math.cos(Math.toRadians(numberA))*100))/100.0;
+                numberA = Double.parseDouble(mainField.getText());
+                if (radEnabled) {
+                    result = (int) (Math.round(Math.cos(numberA) * 100000)) / 100000.0;
+                } else {
+                    result = (int) (Math.round(Math.cos(Math.toRadians(numberA)) * 100000)) / 100000.0;
                 }
-                secondField.setText(secondField.getText() + "cos("+numberA+")");
+                secondField.setText(secondField.getText() + "cos(" + numberA + ")");
             } else {
-                if(radEnabled) {
-                    numberB = Double.parseDouble(mainField.getText());
-                } else{
-                    numberB = Double.parseDouble(mainField.getText());
-                    result = numberB;
-                    numberB = Math.toRadians(numberB);
-                }
-                secondField.setText(secondField.getText() + "cos("+result+")");
+                numberB = Double.parseDouble(mainField.getText());
+                secondField.setText(secondField.getText() + "cos(" + result + ")");
             }
             if (operation.equals("+")) {
-                result += Math.cos(numberB);
+                if (radEnabled) {
+                    result += (int) (Math.round(Math.cos(numberB) * 100000)) / 100000.0;
+                } else {
+                    result += (int) (Math.round(Math.cos(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             if (operation.equals("-")) {
-                result -= Math.cos(numberB);
+                if (radEnabled) {
+                    result -= (int) (Math.round(Math.cos(numberB) * 100000)) / 100000.0;
+                } else {
+                    result -= (int) (Math.round(Math.cos(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             if (operation.equals("*")) {
-                result *= Math.cos(numberB);
+                if (radEnabled) {
+                    result *= (int) (Math.round(Math.cos(numberB) * 100000)) / 100000.0;
+                } else {
+                    result *= (int) (Math.round(Math.cos(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             if (operation.equals("/")) {
-                result /= Math.cos(numberB);
+                if (radEnabled) {
+                    result /= (int) (Math.round(Math.cos(numberB) * 100000)) / 100000.0;
+                } else {
+                    result /= (int) (Math.round(Math.cos(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             mainField.setText(Double.toString(result));
             operation = "0";
             mainField.requestFocusInWindow();
         });
-        tangens.addActionListener((ActionEvent e) ->{
+        tangens.addActionListener((ActionEvent e) -> {
             if (operation.equals("0")) {
-                numberA = Double.parseDouble(mainField.getText().toString());
-                if(radEnabled) {
-                    result = (int)(Math.round(Math.tan(numberA)*100000))/100000.0;
-                } else{
-                    result = (int)(Math.round(Math.tan(Math.toRadians(numberA))*100))/100.0;
+                numberA = Double.parseDouble(mainField.getText());
+                if (radEnabled) {
+                    result = (int) (Math.round(Math.tan(numberA) * 100000)) / 100000.0;
+                } else {
+                    result = (int) (Math.round(Math.tan(Math.toRadians(numberA)) * 100000)) / 100000.0;
                 }
-                secondField.setText(secondField.getText() + "tan("+numberA+")");
+                secondField.setText(secondField.getText() + "tan(" + numberA + ")");
             } else {
-                if(radEnabled) {
-                    numberB = Double.parseDouble(mainField.getText());
-                } else{
-                    numberB = Double.parseDouble(mainField.getText());
-                    result = numberB;
-                    numberB = Math.toRadians(numberB);
-                }
-                secondField.setText(secondField.getText() + "tan("+result+")");
+                numberB = Double.parseDouble(mainField.getText());
+                secondField.setText(secondField.getText() + "tan(" + result + ")");
             }
             if (operation.equals("+")) {
-                result += Math.tan(numberB);
+                if (radEnabled) {
+                    result += (int) (Math.round(Math.tan(numberB) * 100000)) / 100000.0;
+                } else {
+                    result += (int) (Math.round(Math.tan(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             if (operation.equals("-")) {
-                result -= Math.tan(numberB);
+                if (radEnabled) {
+                    result -= (int) (Math.round(Math.tan(numberB) * 100000)) / 100000.0;
+                } else {
+                    result -= (int) (Math.round(Math.tan(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             if (operation.equals("*")) {
-                result *= Math.tan(numberB);
+                if (radEnabled) {
+                    result *= (int) (Math.round(Math.tan(numberB) * 100000)) / 100000.0;
+                } else {
+                    result *= (int) (Math.round(Math.tan(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             if (operation.equals("/")) {
-                result /= Math.tan(numberB);
+                if (radEnabled) {
+                    result /= (int) (Math.round(Math.tan(numberB) * 100000)) / 100000.0;
+                } else {
+                    result /= (int) (Math.round(Math.tan(Math.toRadians(numberB)) * 100000)) / 100000.0;
+                }
             }
             mainField.setText(Double.toString(result));
             operation = "0";
+            mainField.requestFocusInWindow();
+        });
+        radButton.addActionListener((ActionEvent e) -> {
+            if (radEnabled) {
+                radEnabled = false;
+                radButton.setText("DEG");
+            } else {
+                radEnabled = true;
+                radButton.setText("RAD");
+            }
+        });
+        powXY.addActionListener((ActionEvent e) -> {
+            if (operation.equals("0")) {
+                numberA = Double.parseDouble(mainField.getText());
+                result = numberA;
+                mainField.setText("0");
+                secondField.setText(secondField.getText() + result + "^");
+            } else {
+                numberB = Double.parseDouble(mainField.getText());
+                secondField.setText(secondField.getText() + numberB + "^");
+            }
+            if (operation.equals("+")) {
+                result += Math.pow(numberA, numberB);
+            }
+            if (operation.equals("-")) {
+                result -= Math.pow(numberA, numberB);
+            }
+            if (operation.equals("*")) {
+                result *= Math.pow(numberA, numberB);
+            }
+            if (operation.equals("/")) {
+                result /= Math.pow(numberA, numberB);
+            }
+            operation = "^";
             mainField.requestFocusInWindow();
         });
     }
