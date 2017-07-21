@@ -7,7 +7,7 @@ import java.text.*;
 /**
  * Created by Mateusz on 17.07.2017.
  */
-public class Scientific extends JFrame implements Toolbox{
+public class Scientific extends JFrame implements Toolbox {
     public JPanel scientific;
     private JFormattedTextField mainField;
     private JTextField secondField;
@@ -131,11 +131,9 @@ public class Scientific extends JFrame implements Toolbox{
                     numberA = numberA * numberB;
                 }
             }
-            if (operation.equals("^"))
-            {
-                if(Character.isDigit(pressedKey))
-                {
-                    numberA = Math.pow(numberA,numberB);
+            if (operation.equals("^")) {
+                if (Character.isDigit(pressedKey)) {
+                    numberA = Math.pow(numberA, numberB);
                 }
             }
             if (operation.equals("/")) {
@@ -187,11 +185,9 @@ public class Scientific extends JFrame implements Toolbox{
                     numberA = numberA * numberB;
                 }
             }
-            if (operation.equals("^"))
-            {
-                if(Character.isDigit(pressedKey))
-                {
-                    numberA = Math.pow(numberA,numberB);
+            if (operation.equals("^")) {
+                if (Character.isDigit(pressedKey)) {
+                    numberA = Math.pow(numberA, numberB);
                 }
             }
             if (operation.equals("/")) {
@@ -242,11 +238,9 @@ public class Scientific extends JFrame implements Toolbox{
                     numberA = numberA * numberB;
                 }
             }
-            if (operation.equals("^"))
-            {
-                if(Character.isDigit(pressedKey))
-                {
-                    numberA = Math.pow(numberA,numberB);
+            if (operation.equals("^")) {
+                if (Character.isDigit(pressedKey)) {
+                    numberA = Math.pow(numberA, numberB);
                 }
             }
             if (operation.equals("/")) {
@@ -295,11 +289,9 @@ public class Scientific extends JFrame implements Toolbox{
                     numberA = numberA * numberB;
                 }
             }
-            if (operation.equals("^"))
-            {
-                if(Character.isDigit(pressedKey))
-                {
-                    numberA = Math.pow(numberA,numberB);
+            if (operation.equals("^")) {
+                if (Character.isDigit(pressedKey)) {
+                    numberA = Math.pow(numberA, numberB);
                 }
             }
             if (operation.equals("/")) {
@@ -1027,11 +1019,9 @@ public class Scientific extends JFrame implements Toolbox{
                     numberA = numberA * numberB;
                 }
             }
-            if (operation.equals("^"))
-            {
-                if(Character.isDigit(pressedKey))
-                {
-                    numberA = Math.pow(numberA,numberB);
+            if (operation.equals("^")) {
+                if (Character.isDigit(pressedKey)) {
+                    numberA = Math.pow(numberA, numberB);
                 }
             }
             if (operation.equals("/")) {
@@ -1058,8 +1048,34 @@ public class Scientific extends JFrame implements Toolbox{
             operation = "^";
             mainField.requestFocusInWindow();
         });
+        logarithm.addActionListener((ActionEvent e) -> {
+            if (operation.equals("0")) {
+                numberA = Double.parseDouble(mainField.getText());
+                result = (int) (Math.round(Math.log10(numberA) * 100000)) / 100000.0;
+                secondField.setText(secondField.getText() + "log(" + numberA + ")");
+            } else {
+                numberB = Double.parseDouble(mainField.getText());
+                secondField.setText(secondField.getText() + "log(" + result + ")");
+            }
+            if (operation.equals("+")) {
+                result += (int) (Math.round(Math.log10(numberB) * 100000)) / 100000.0;
+            }
+            if (operation.equals("-")) {
+                result -= (int) (Math.round(Math.log10(numberB) * 100000)) / 100000.0;
+            }
+            if (operation.equals("*")) {
+                result *= (int) (Math.round(Math.log(numberB) * 100000)) / 100000.0;
+            }
+            if (operation.equals("/")) {
+                result /= (int) (Math.round(Math.log(numberB) * 100000)) / 100000.0;
+            }
+            mainField.setText(Double.toString(result));
+            operation = "0";
+            mainField.requestFocusInWindow();
+        });
     }
-    private void initButtons(){
+
+    private void initButtons() {
         a1Button.addActionListener((ActionEvent e) -> ButtonCode(a1Button, mainField, pressedKey));
         a2Button.addActionListener((ActionEvent e) -> ButtonCode(a2Button, mainField, pressedKey));
         a3Button.addActionListener((ActionEvent e) -> ButtonCode(a3Button, mainField, pressedKey));
