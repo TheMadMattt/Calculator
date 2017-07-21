@@ -1,5 +1,3 @@
-import sun.awt.image.ToolkitImage;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
