@@ -57,7 +57,7 @@
           <background color="-5792083"/>
           <font size="24"/>
           <foreground color="-16777216"/>
-          <text value="x"/>
+          <text value="×"/>
         </properties>
       </component>
       <component id="44d7e" class="javax.swing.JButton" binding="dotButton">
@@ -231,6 +231,7 @@
           </grid>
         </constraints>
         <properties>
+          <horizontalAlignment value="4"/>
           <text value=""/>
         </properties>
       </component>

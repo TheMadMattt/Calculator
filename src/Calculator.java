@@ -229,7 +229,7 @@ public class Calculator extends JFrame implements Toolbox{
                         numberA = numberA / numberB;
                         result = numberA;
                         mainField.setText("0");
-                        secondField.setText(result + " x ");
+                        secondField.setText(result + " × ");
                     } else {
                         mainField.setText("Error");
                         secondField.setText(secondField.getText() + numberB);
@@ -237,11 +237,11 @@ public class Calculator extends JFrame implements Toolbox{
                 } else if (pressedKey == '*' && mainField.getText().equals("0")) {
                     result = numberA;
                     mainField.setText("0");
-                    secondField.setText(result + " x ");
+                    secondField.setText(result + " × ");
                 }
             } else {
                 result = numberA;
-                secondField.setText(result + " x ");
+                secondField.setText(result + " × ");
                 mainField.setText("0");
             }
             operation = "*";

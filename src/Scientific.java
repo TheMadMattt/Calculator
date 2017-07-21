@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.math.RoundingMode;
+import java.math.*;
 import java.text.*;
 
 /**
@@ -47,6 +47,9 @@ public class Scientific extends JFrame implements Toolbox {
     private JButton radButton;
     private JButton powXY;
     private JButton logarithm;
+    private JButton PI;
+    private JButton factorial;
+    private JButton shift;
     private double numberA = 0;
     private double numberB = 0;
     private double result = 0;
@@ -54,6 +57,7 @@ public class Scientific extends JFrame implements Toolbox {
     private String operation = "0";
     private char pressedKey = 'a';
     private boolean radEnabled = true;
+    private boolean shiftEnabled = false;
 
     Scientific(int posX, int posY) {
         super("Naukowy");
@@ -249,7 +253,7 @@ public class Scientific extends JFrame implements Toolbox {
                         numberA = numberA / numberB;
                         result = numberA;
                         mainField.setText("0");
-                        secondField.setText(result + " x ");
+                        secondField.setText(result + " × ");
                     } else {
                         mainField.setText("Error");
                         secondField.setText(secondField.getText() + numberB);
@@ -257,11 +261,11 @@ public class Scientific extends JFrame implements Toolbox {
                 } else if (pressedKey == '*' && mainField.getText().equals("0")) {
                     result = numberA;
                     mainField.setText("0");
-                    secondField.setText(result + " x ");
+                    secondField.setText(result + " × ");
                 }
             } else {
                 result = numberA;
-                secondField.setText(result + " x ");
+                secondField.setText(result + " × ");
                 mainField.setText("0");
             }
             operation = "*";
@@ -1068,6 +1072,58 @@ public class Scientific extends JFrame implements Toolbox {
             }
             if (operation.equals("/")) {
                 result /= (int) (Math.round(Math.log(numberB) * 100000)) / 100000.0;
+            }
+            mainField.setText(Double.toString(result));
+            operation = "0";
+            mainField.requestFocusInWindow();
+        });
+        PI.addActionListener((ActionEvent e) -> {
+            mainField.setText("" + Math.PI);
+        });
+        shift.addActionListener((ActionEvent e) -> {
+            if (shiftEnabled) {
+                shiftEnabled = false;
+                square.setText("x²");
+                powXY.setText("x^y");
+                logarithm.setText("log");
+            } else {
+                shiftEnabled = true;
+                square.setText("x^3");
+                powXY.setText("y√x");
+                logarithm.setText("ln");
+            }
+        });
+        factorial.addActionListener((ActionEvent e) -> {
+            int i, fact = 1;
+            if (operation.equals("0")) {
+                numberA = Double.parseDouble(mainField.getText());
+                if (numberA == 0) {
+                    result = 1;
+                } else {
+                    for (i = 1; i <= numberA; i++) {
+                        fact *= i;
+                    }
+                    result = fact;
+                }
+                secondField.setText(secondField.getText() + numberA + "!");
+            } else {
+                numberB = Double.parseDouble(mainField.getText());
+                secondField.setText(secondField.getText() + numberB + "!");
+                for (i = 1; i <= numberB; i++) {
+                    fact *= i;
+                }
+            }
+            if (operation.equals("+")) {
+                result += fact;
+            }
+            if (operation.equals("-")) {
+                result -= fact;
+            }
+            if (operation.equals("*")) {
+                result *= fact;
+            }
+            if (operation.equals("/")) {
+                result /= fact;
             }
             mainField.setText(Double.toString(result));
             operation = "0";
