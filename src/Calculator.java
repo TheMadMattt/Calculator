@@ -7,7 +7,7 @@ import java.awt.event.*;
 /**
  * Created by Mateusz on 08.07.2017.
  */
-public class Calculator extends JFrame {
+public class Calculator extends JFrame implements Toolbox{
     private JPanel standard;
     private JFormattedTextField mainField;
     private JTextField secondField;
@@ -78,118 +78,8 @@ public class Calculator extends JFrame {
         MClearButton.setEnabled(false);
         MReadButton.setEnabled(false);
         memoryField.setEditable(false);
+        initButtons();
 
-        a1Button.addActionListener((ActionEvent e) ->
-        {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a1Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a1Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a1Button.getText());
-            }
-            pressedKey = a1Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
-        a2Button.addActionListener((ActionEvent e) -> {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a2Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a2Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a2Button.getText());
-            }
-            pressedKey = a1Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
-        a3Button.addActionListener((ActionEvent e) -> {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a3Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a3Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a3Button.getText());
-            }
-            pressedKey = a1Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
-        a4Button.addActionListener((ActionEvent e) -> {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a4Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a4Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a4Button.getText());
-            }
-            pressedKey = a1Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
-        a5Button.addActionListener((ActionEvent e) -> {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a5Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a5Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a5Button.getText());
-            }
-            pressedKey = a1Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
-        a6Button.addActionListener((ActionEvent e) -> {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a6Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a6Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a6Button.getText());
-            }
-            pressedKey = a1Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
-        a7Button.addActionListener((ActionEvent e) -> {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a7Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a7Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a7Button.getText());
-            }
-            pressedKey = a1Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
-        a8Button.addActionListener((ActionEvent e) -> {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a8Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a8Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a8Button.getText());
-            }
-            pressedKey = a1Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
-        a9Button.addActionListener((ActionEvent e) -> {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a9Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a9Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a9Button.getText());
-            }
-            pressedKey = a1Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
-        a0Button.addActionListener((ActionEvent e) -> {
-            if (mainField.getText().isEmpty()) {
-                mainField.setText(mainField.getText() + a0Button.getText());
-            } else if (mainField.getText().equals("0")) {
-                mainField.setText(a0Button.getText());
-            } else {
-                mainField.setText(mainField.getText() + a0Button.getText());
-            }
-            pressedKey = a0Button.getText().charAt(0);
-            mainField.requestFocusInWindow();
-        });
         clearButton.addActionListener((ActionEvent e) -> {
             mainField.setText("0");
             secondField.setText(null);
@@ -908,5 +798,18 @@ public class Calculator extends JFrame {
             new Scientific(x,y);
             dispose();
         });
+    }
+
+    private void initButtons(){
+        a1Button.addActionListener((ActionEvent e) -> ButtonCode(a1Button, mainField, pressedKey));
+        a2Button.addActionListener((ActionEvent e) -> ButtonCode(a2Button, mainField, pressedKey));
+        a3Button.addActionListener((ActionEvent e) -> ButtonCode(a3Button, mainField, pressedKey));
+        a4Button.addActionListener((ActionEvent e) -> ButtonCode(a4Button, mainField, pressedKey));
+        a5Button.addActionListener((ActionEvent e) -> ButtonCode(a5Button, mainField, pressedKey));
+        a6Button.addActionListener((ActionEvent e) -> ButtonCode(a6Button, mainField, pressedKey));
+        a7Button.addActionListener((ActionEvent e) -> ButtonCode(a7Button, mainField, pressedKey));
+        a8Button.addActionListener((ActionEvent e) -> ButtonCode(a8Button, mainField, pressedKey));
+        a9Button.addActionListener((ActionEvent e) -> ButtonCode(a9Button, mainField, pressedKey));
+        a0Button.addActionListener((ActionEvent e) -> ButtonCode(a0Button, mainField, pressedKey));
     }
 }
