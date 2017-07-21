@@ -1077,9 +1077,7 @@ public class Scientific extends JFrame implements Toolbox {
             operation = "0";
             mainField.requestFocusInWindow();
         });
-        PI.addActionListener((ActionEvent e) -> {
-            mainField.setText("" + Math.PI);
-        });
+        PI.addActionListener((ActionEvent e) -> mainField.setText("" + Math.PI));
         shift.addActionListener((ActionEvent e) -> {
             if (shiftEnabled) {
                 shiftEnabled = false;

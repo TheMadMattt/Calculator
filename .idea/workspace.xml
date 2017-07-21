@@ -7,10 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ecb56e4-4620-4ebe-a523-fa2e6b0c549d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Kalkulator_jar/Kalkulator.jar" afterPath="$PROJECT_DIR$/out/artifacts/Kalkulator_jar/Kalkulator.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Calculator.form" afterPath="$PROJECT_DIR$/src/Calculator.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Calculator.java" afterPath="$PROJECT_DIR$/src/Calculator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scientific.form" afterPath="$PROJECT_DIR$/src/Scientific.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scientific.java" afterPath="$PROJECT_DIR$/src/Scientific.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -74,8 +72,8 @@
       <file leaf-file-name="Scientific.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Scientific.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="1121" column="40" lean-forward="true" selection-start-line="1121" selection-start-column="40" selection-end-line="1121" selection-end-column="40" />
+            <state relative-caret-position="113">
+              <caret line="1080" column="52" lean-forward="false" selection-start-line="1080" selection-start-column="52" selection-end-line="1080" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2432#2581#0" expanded="true" />
@@ -805,11 +803,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500643241013</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added factorial">
+      <created>1500646016506</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1500646016506</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121423000" />
+    <option name="totallyTimeSpent" value="121470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="0" />
@@ -889,7 +894,8 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="added x^y" />
     <MESSAGE value="added log" />
-    <option name="LAST_COMMIT_MESSAGE" value="added log" />
+    <MESSAGE value="added factorial" />
+    <option name="LAST_COMMIT_MESSAGE" value="added factorial" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1316,6 +1322,11 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scientific.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Calculator.form">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1344,15 +1355,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scientific.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scientific.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="1121" column="40" lean-forward="true" selection-start-line="1121" selection-start-column="40" selection-end-line="1121" selection-end-column="40" />
+        <state relative-caret-position="113">
+          <caret line="1080" column="52" lean-forward="false" selection-start-line="1080" selection-start-column="52" selection-end-line="1080" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2432#2581#0" expanded="true" />
